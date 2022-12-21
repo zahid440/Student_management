@@ -35,7 +35,7 @@ class LinkedList
 			head->Link = NULL;
 			tail = head;
 			
-			cout << "Data inserted at the START of the list! \n\n";
+			cout << "Data Inserted At the START of the List! \n\n";
 		}
 		
 		else
@@ -48,7 +48,7 @@ class LinkedList
 			temp->Link = head;
 			head = temp;
 			
-			cout << "Data inserted at the START of the list! \n\n";
+			cout << "Data Inserted at the START of the List! \n\n";
 		}
 	}
 	
@@ -57,7 +57,7 @@ class LinkedList
 		
 		if (head == NULL)
 		{
-			cout << "List is empty. Therefore, ";
+			cout << "\aList is Empty. Therefore, ";
 			InsertAtHead(roll, name, gpa);
 			return;
 		}
@@ -76,7 +76,7 @@ class LinkedList
 			head = tail;
 		}
 		
-		cout << "Data inserted at the END of the list! \n\n";
+		cout << "Data Inserted at the END of the List! \n\n";
 	} //End of section
 	
 	
@@ -85,7 +85,7 @@ class LinkedList
 	{
 		if (head == NULL)
 		{
-			cout << "List is empty. Therefore, ";
+			cout << "\aList is Empty. Therefore, ";
 			InsertAtHead(roll, name, gpa);
 			return;
 		}
@@ -93,12 +93,12 @@ class LinkedList
 		int beforeAfter, findRoll;
 		bool found = false;
 			
-		cout << "Enter ROLL NO. next to which you want to place the new entry: ";
+		cout << "Enter ROLL NO, Next to Which You Want to Place the New Entry: ";
 		cin >> findRoll;
 			
 		do
 		{
-			cout << "Do you want to insert the new entry BEFORE(1) or AFTER(2) ROLL NO. \"" << findRoll << "\"?: ";
+			cout << "Do You Want to Insert the New Entry BEFORE(1) or AFTER(2) ROLL NO. \"" << findRoll << "\"?: ";
 			cin >> beforeAfter;
 		}
 		
@@ -123,7 +123,7 @@ class LinkedList
 					temp->Link = current->Link;
 					current->Link = temp;
 					
-					cout << "Data inserted AFTER ROLL NO. \"" << findRoll << "\"!\n\n";
+					cout << "Data Inserted AFTER ROLL NO. \"" << findRoll << "\"!\n\n";
 				}
 					
 				else if (beforeAfter == 1)
@@ -140,7 +140,7 @@ class LinkedList
 						prev->Link = temp;
 					}
 				
-					cout << "Data inserted BEFORE ROLL NO. \"" << findRoll << "\"!\n\n";
+					cout << "Data Inserted BEFORE ROLL NO. \"" << findRoll << "\"!\n\n";
 				}
 				
 				return;
@@ -152,7 +152,7 @@ class LinkedList
 		
 		if (!found)
 		{
-			cout << "Roll NO. not found! \n\n";
+			cout << "\nRoll NO Not Found! \n\n";
 			InsertAtMid(roll, name, gpa);
 		}
 	}//End of section
@@ -162,7 +162,7 @@ class LinkedList
 	{
 		if (head == NULL)
 		{
-			cout << "List is empty. Therefore, ";
+			cout << "List is Empty. Therefore, ";
 			InsertAtHead(roll, name, gpa);
 			return;
 		}
@@ -178,7 +178,7 @@ class LinkedList
 		{
 			if (roll == current->ROLL)
 			{
-				cout << "\nROLL NO. Already exists. Data NOT registered!\n\n";
+				cout << "\nROLL NO. Already Exists. Data NOT Registered!\n\n";
 				return;
 			}
 			
@@ -187,7 +187,7 @@ class LinkedList
 				temp->Link = head;
 				head = temp;
 					
-				cout << "Data inserted BEFORE ROLL NO. \"" << current->ROLL << "\" using Auto Arrange!\n\n";
+				cout << "Data Inserted BEFORE ROLL NO. \"" << current->ROLL << "\" Using Auto Arrange!\n\n";
 				return;
 			}
 			
@@ -195,7 +195,7 @@ class LinkedList
 			{
 				temp->Link = head;
 					
-				cout << "Data inserted BEFORE ROLL NO. \"" << current->ROLL << "\" using Auto Arrange!\n\n";
+				cout << "Data Inserted BEFORE ROLL NO. \"" << current->ROLL << "\" Using Auto Arrange!\n\n";
 				return;
 			}
 				
@@ -220,7 +220,7 @@ class LinkedList
 			head = current->Link;
 			delete current;
 			
-			cout << "Record deleted! \n\n";
+			cout << "Record Deleted! \n\n";
 			return;
 		}
 		
@@ -233,7 +233,7 @@ class LinkedList
 					prev->Link = current->Link;
 					delete current;
 					
-					cout << "Record deleted! \n\n";
+					cout << "Record Deleted! \n\n";
 					
 					return;
 				}
@@ -244,7 +244,7 @@ class LinkedList
 			
 			if (current = NULL)
 			{
-				cout << "ROLL NO. not found!\n";
+				cout << "\aROLL NO Not Found!\n";
 				return;
 			}
 		}
@@ -253,16 +253,18 @@ class LinkedList
 	void Display()
 	{
 		current = head;
-		
-		cout << "ROLL\tNAME\tGPA" << endl;
+		int sr=1;
+		cout << "Sr. No\tROLL\tNAME\tGPA" << endl;
 		
 		while(current != NULL)
 		{
+			cout << sr << "\t";
 			cout << current->ROLL << "\t";
 			cout << current->NAME << "\t";
 			cout << current->GPA << endl;
 			
 			current = current->Link;
+			sr++;
 		}
 		
 		cout << endl;
@@ -273,7 +275,7 @@ class LinkedList
 	{
 		bool found = false;
 		current = head;
-		
+		int sr=1;
 		cout << endl;
 		
 		while (current != NULL)
@@ -281,10 +283,11 @@ class LinkedList
 			if (findRoll == current->ROLL)
 			{
 				found = true;
-				
+				cout << sr << "\t";
 				cout << "Roll No: " << current->ROLL << "\t";
 				cout << "Name: " << current->NAME << "\t";
 				cout << "GPA: " << current->GPA << endl << endl;
+				sr++;
 				break;
 			}
 			
@@ -293,7 +296,7 @@ class LinkedList
 		
 		if (!found)
 		{
-			cout << "ROLL NO. not found!\n\n";
+			cout << "ROLL NO Not Found!\n\n";
 		}
 	}
 	
@@ -324,7 +327,7 @@ class LinkedList
 		
 		if (!found)
 		{
-			cout << "Record not found!\n\n";
+			cout << "\aRecord Not Found!\n\n";
 		}
 		
 		else
@@ -340,7 +343,7 @@ class LinkedList
 			current->NAME = name;
 			current->GPA = gpa;
 			
-			cout << "Record updated successfully!\n\n";
+			cout << "Record Updated Successfully!\n\n";
 		}
 	}//End of section
 };
@@ -353,37 +356,38 @@ main()
 	string name;
 	bool after = false;
 	
-	cout << "WELCOME TO STUDENT DATA SYSTEM!\n\n";
+	cout << "\aWELCOME TO STUDENT DATA SYSTEM!\n\n";
 	
 	while (true)
 	{
-		cout << "Press 1 to ADD NEW record.\n";
-		cout << "Press 2 to SEARCH for a record. \n";
-		cout << "Press 3 to DISPLAY all records. \n";
-		cout << "Press 4 to DELETE a record. \n";
-		cout << "Press 5 to UPDATE a record. \n\n";
+		cout << "Press 1 to ADD NEW Record.\n";
+		cout << "Press 2 to SEARCH for a Record. \n";
+		cout << "Press 3 to DISPLAY All Records. \n";
+		cout << "Press 4 to DELETE a Record. \n";
+		cout << "Press 5 to UPDATE a Record. \n";
+		cout << "Press 6 to EXIT. \n\n";
 		cin >> select;
 		
-		while (select < 1 && select > 5)
+		while (select < 1 && select > 6)
 		{
-			cout << "Wrong selection. Select again: ";
+			cout << "Wrong Selection. Select Again: ";
 			cin >> select;
 		}
 		
 		if (select == 1)
 		{
-			cout << "Enter ROLL NO. of the sutdent: ";
+			cout << "Enter ROLL NO. of the Sutdent: ";
 			cin >> roll;
-			cout << "Enter NAME of the student: ";
+			cout << "Enter NAME of the Student: ";
 			cin >> name;
-			cout << "Enter GPA of the student: ";
+			cout << "Enter GPA of the Student: ";
 			cin >> gpa;
-			cout << "\nDo you want to add the record at the START(1), MID(2), END(3) or AutoArrange(4)? ";
+			cout << "\nDo You Want to Add the Record at the START(1), MID(2), END(3) or AutoArrange(4)? ";
 			cin >> select;
 			
 			while (select != 1 && select != 2 && select != 3 && select != 4)
 			{
-				cout << "Wrong selection. Select again: ";
+				cout << "Wrong Selection. Select Again: ";
 				cin >> select;
 			}
 			
@@ -405,7 +409,7 @@ main()
 		
 		else if (select == 2)
 		{
-			cout << "Enter ROLL NO. to search: ";
+			cout << "Enter ROLL NO. to Search: ";
 			cin >> findRoll;
 			
 			list.Search(findRoll);
@@ -418,7 +422,7 @@ main()
 		
 		else if (select == 4)
 		{
-			cout << "Enter ROLL NO. to delete: ";
+			cout << "Enter ROLL NO. to Delete: ";
 			cin >> roll;
 			
 			list.Delete(roll);
@@ -426,10 +430,29 @@ main()
 		
 		else if (select == 5)
 		{
-			cout << "Enter ROLL NO. of the record to update: ";
+			cout << "Enter ROLL NO of the Record to Update: ";
 			cin >> findRoll;
 			
 			list.Update(findRoll);
+		}
+		
+		else if (select == 6)
+		{
+			int slct;
+			cout << "Are You Sure You Want to Exit? Yes(1) -  No(2) \n";
+			cin >> slct;
+			while(slct > 2 && slct < 1)
+			{
+			cin >> slct;
+			}
+			if (slct == 1)
+			{
+			break;
+			}
+			if (slct == 2)
+			{
+				continue;
+			}
 		}
 	}
 }
